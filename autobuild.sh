@@ -6,7 +6,7 @@ CONFIG+=("with-features=huge")
 CONFIG+=("enable-multibyte")
 #CONFIG+=("enable-gpm")
 #CONFIG+=("enable-cscope")
-#CONFIG+=("enable-fontset")
+CONFIG+=("enable-fontset")
 #CONFIG+=("enable-fail-if-missing")
 #CONFIG+=("prefix=/usr/local")
 #CONFIG+=("disable-gui")
@@ -35,8 +35,6 @@ for v in "${CONFIG[@]}"
 do
 	CONFIG_CMD+=" --${v}"
 done
-
-git submodule foreach 'git fetch origin && git pull origin master' && git add vim && git commit -m "update vim repo" && git push
 
 cd vim/src
 make distclean
